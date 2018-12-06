@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MeliApp</string>
+    <string name="app_name">Lista de cosas</string>
     <string name="title_activity_main">MainActivity</string>
 
     <string name="username">example@meli.com</string>
