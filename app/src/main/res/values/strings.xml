@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MeliApp</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="username">example@meli.com</string>
+    <string name="password">Enter Password</string>
+    <string name="button">Press me!</string>
+</resources>
