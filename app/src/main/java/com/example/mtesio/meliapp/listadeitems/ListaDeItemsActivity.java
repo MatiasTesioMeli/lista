@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.mtesio.meliapp.R;
 
@@ -52,8 +53,13 @@ public class ListaDeItemsActivity extends AppCompatActivity implements ListaView
     }
 
     @Override
-    public void setItems(List<Item> items) {
+    public void setItems(ListaDeItems items) {
         list.setAdapter(new CustomListAdapter(items));
         hideProgress();
+    }
+
+    public void showError(){
+        Toast.makeText(this, "Request on failure",
+                Toast.LENGTH_LONG).show();
     }
 }

@@ -6,9 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.mtesio.meliapp.R;
 import com.example.mtesio.meliapp.listadeitems.ListaDeItemsActivity;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class LoginActivity extends AppCompatActivity implements LoginView{
 
@@ -64,4 +69,23 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     public String getPassword(){
         return password.getText().toString();
     }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onPassUserDataEvent(User.LogAuthFinishedEvent event) {
+        Toast.makeText(this, "Llego el bus event",
+                Toast.LENGTH_LONG).show();
+    };
 }

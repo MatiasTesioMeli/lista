@@ -2,17 +2,29 @@ package com.example.mtesio.meliapp.listadeitems;
 
 import android.graphics.drawable.Drawable;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Item {
 
-    private Drawable image;
+    @SerializedName("title")
+    @Expose
     private String description;
+
+    @SerializedName("price")
+    @Expose
     private String price;
 
-    public Drawable getImage() {
+    @SerializedName("thumbnail")
+    @Expose
+    private String image;
+
+
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Drawable image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -32,7 +44,7 @@ public class Item {
         this.price = price;
     }
 
-    public Item(Drawable image, String description, String price){
+    public Item(String image, String description, String price){
         this.image = image;
         this.description = description;
         this.price = price;

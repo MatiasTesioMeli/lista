@@ -18,6 +18,7 @@ public class LoginPresenter {
         if(view != null){
             user.setUsername(view.getPassword());
             user.setPassword(view.getPassword());
+            user.logAuth();
             view.navigateToNextPage();
         }
     }

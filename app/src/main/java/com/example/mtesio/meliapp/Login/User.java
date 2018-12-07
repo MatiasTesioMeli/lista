@@ -1,5 +1,7 @@
 package com.example.mtesio.meliapp.Login;
 
+import org.greenrobot.eventbus.EventBus;
+
 public class User {
 
     private String username;
@@ -19,5 +21,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void logAuth(){
+        EventBus.getDefault().post(new LogAuthFinishedEvent());
+    }
+
+    public static class LogAuthFinishedEvent {
+
     }
 }

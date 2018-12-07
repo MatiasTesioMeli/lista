@@ -8,5 +8,7 @@ public interface ListaView {
 
     void hideProgress();
 
-    void setItems(List<Item> items);
+    void setItems(ListaDeItems items);
+
+    void showError();
 }

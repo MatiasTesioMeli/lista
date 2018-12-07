@@ -1,23 +1,21 @@
 package com.example.mtesio.meliapp.listadeitems;
 
-import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mtesio.meliapp.R;
-
-import java.util.List;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 public class CustomListAdapter extends RecyclerView.Adapter<CustomListAdapter.ListViewHolder>{
 
-    private List<Item> items;
+    private ListaDeItems items;
 
-    public CustomListAdapter(List<Item> items){
+    public CustomListAdapter(ListaDeItems items){
         this.items = items;
     }
 
@@ -33,22 +31,30 @@ public class CustomListAdapter extends RecyclerView.Adapter<CustomListAdapter.Li
 
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder listViewHolder, int position) {
-        final Item item = items.get(position);
+        final Item item = items.getList().get(position);
+        Uri imageUri = Uri.parse(item.getImage());
         listViewHolder.descripcion.setText(item.getDescription());
-        listViewHolder.precio.setText(item.getPrice());
-        listViewHolder.image.setImageDrawable(item.getImage());
+        listViewHolder.precio.setText("Precio: " + item.getPrice());
+        listViewHolder.image.setImageURI(imageUri);
+
+        //For gifs
+       /* DraweeController controller = Fresco.newDraweeControllerBuilder()
+                .setUri(imageUri)
+                .setAutoPlayAnimations(true)
+                .build();
+        listViewHolder.image.setController(controller);*/
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return items.getList().size();
     }
 
     static class ListViewHolder extends RecyclerView.ViewHolder {
 
         TextView descripcion;
         TextView precio;
-        ImageView image;
+        SimpleDraweeView image;
 
         public ListViewHolder(ConstraintLayout layout) {
             super(layout);
