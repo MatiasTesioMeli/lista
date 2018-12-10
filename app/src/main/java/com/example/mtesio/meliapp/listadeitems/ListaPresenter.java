@@ -1,11 +1,6 @@
 package com.example.mtesio.meliapp.listadeitems;
 
-import android.widget.Toast;
-
-import com.example.mtesio.meliapp.productservice.ProductService;
 import com.example.mtesio.meliapp.productservice.ProductsAPI;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,11 +21,15 @@ public class ListaPresenter {
     }
 
 
-    public void onResume() {
+    public ListaView getView() {
+        return view;
+    }
+
+    public void onResume(String query) {
         if (view != null) {
             view.showProgress();
         }
-        ProductsAPI.getInstance().getAllItems("fender", new Callback<ListaDeItems>(){
+        ProductsAPI.getInstance().getAllItems(query, new Callback<ListaDeItems>(){
             @Override
             public void onResponse(Call<ListaDeItems> call, Response<ListaDeItems> response) {
                 if(response.isSuccessful()){
@@ -44,6 +43,12 @@ public class ListaPresenter {
             }
         });
 
+    }
+
+    public void navigate(String id){
+        if(view != null){
+            view.navigateToNextPage(id);
+        }
     }
 
 }

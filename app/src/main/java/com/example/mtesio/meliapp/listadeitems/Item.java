@@ -1,6 +1,6 @@
 package com.example.mtesio.meliapp.listadeitems;
 
-import android.graphics.drawable.Drawable;
+import android.view.View;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -18,6 +18,10 @@ public class Item {
     @SerializedName("thumbnail")
     @Expose
     private String image;
+
+    @SerializedName("id")
+    @Expose
+    private String id;
 
 
     public String getImage() {
@@ -49,5 +53,9 @@ public class Item {
         this.description = description;
         this.price = price;
 
+    }
+
+    public String getId() {
+        return id;
     }
 }

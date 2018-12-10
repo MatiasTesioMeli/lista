@@ -14,11 +14,12 @@ import com.facebook.drawee.view.SimpleDraweeView;
 public class CustomListAdapter extends RecyclerView.Adapter<CustomListAdapter.ListViewHolder>{
 
     private ListaDeItems items;
+    private ListaDeItemsActivity.ItemListener listener;
 
-    public CustomListAdapter(ListaDeItems items){
+    public CustomListAdapter(ListaDeItems items,  ListaDeItemsActivity.ItemListener listener){
         this.items = items;
+        this.listener = listener;
     }
-
 
     @NonNull
     @Override
@@ -26,7 +27,7 @@ public class CustomListAdapter extends RecyclerView.Adapter<CustomListAdapter.Li
         ConstraintLayout layout = (ConstraintLayout) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_view, parent, false);
 
-        return new ListViewHolder(layout);
+        return new ListViewHolder(layout, listener);
     }
 
     @Override
@@ -36,6 +37,9 @@ public class CustomListAdapter extends RecyclerView.Adapter<CustomListAdapter.Li
         listViewHolder.descripcion.setText(item.getDescription());
         listViewHolder.precio.setText("Precio: " + item.getPrice());
         listViewHolder.image.setImageURI(imageUri);
+
+        listViewHolder.layout.setOnClickListener(v -> listener.onClick(item.getId()));
+
 
         //For gifs
        /* DraweeController controller = Fresco.newDraweeControllerBuilder()
@@ -55,13 +59,14 @@ public class CustomListAdapter extends RecyclerView.Adapter<CustomListAdapter.Li
         TextView descripcion;
         TextView precio;
         SimpleDraweeView image;
+        ConstraintLayout layout;
 
-        public ListViewHolder(ConstraintLayout layout) {
+        public ListViewHolder(ConstraintLayout layout, ListaDeItemsActivity.ItemListener listener) {
             super(layout);
             this.descripcion = layout.findViewById(R.id.description);
-            this.precio = layout.findViewById(R.id.price);;
-            this.image = layout.findViewById(R.id.image);;
-
+            this.precio = layout.findViewById(R.id.price);
+            this.image = layout.findViewById(R.id.image);
+            this.layout = layout;
         }
     }
 }

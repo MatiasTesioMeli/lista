@@ -18,11 +18,6 @@ public class ListaDeItems {
         list = new ArrayList<Item>();
     }
 
-    public void generateList(ListaDeItems list){
-        this.list = list.getList();
-
-    }
-
     public List<Item> getList(){
          return list;
     }

@@ -11,4 +11,6 @@ public interface ListaView {
     void setItems(ListaDeItems items);
 
     void showError();
+
+    void navigateToNextPage(String id);
 }
