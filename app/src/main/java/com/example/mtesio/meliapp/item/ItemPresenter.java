@@ -49,7 +49,7 @@ public class ItemPresenter {
             if(route.equals("meli"))
                 view.navigateToNextPage(itemModel.getUriArticuloMeli());
             else
-                view.navigateToNextPage("ml://vervendedor");
+                view.navigateToNextPage("ml://vervendedor/" + itemModel.getSeller_id());
 
         }
     }

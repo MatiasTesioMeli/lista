@@ -4,13 +4,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import com.example.mtesio.meliapp.R;
 import com.example.mtesio.meliapp.item.ItemActivity;

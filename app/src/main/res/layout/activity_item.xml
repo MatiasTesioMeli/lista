@@ -115,7 +115,8 @@
         android:id="@+id/comprar_item"
         android:layout_width="191dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@color/colorPrimary"
         android:text="Comprar"
         android:textColor="@color/white"
@@ -123,17 +124,19 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
     <Button
         android:id="@+id/ver_vendedor_item"
-        android:layout_width="191dp"
+        android:layout_width="188dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@color/colorPrimary"
         android:text="Ver Vendedor"
         android:textColor="@color/white"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
