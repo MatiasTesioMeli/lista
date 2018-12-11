@@ -6,22 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="2dp"
-    android:background="@color/white"
-    android:padding="10dp">
+    android:background="@color/white">
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/image"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        fresco:actualImageScaleType="focusCrop"
+        fresco:actualImageScaleType="centerCrop"
         fresco:placeholderImage="@drawable/img1"
         fresco:progressBarImageScaleType="centerInside" />
 

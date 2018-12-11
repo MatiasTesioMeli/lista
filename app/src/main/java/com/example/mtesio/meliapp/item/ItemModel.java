@@ -43,6 +43,18 @@ public class ItemModel {
     @Expose
     private String descripcion;
 
+    @SerializedName("seller_id")
+    @Expose
+    private String seller_id;
+
+    public String getSeller_id() {
+        return seller_id;
+    }
+
+    public void setSeller_id(String seller_id) {
+        this.seller_id = seller_id;
+    }
+
     public List<ItemImages> getImages() {
         return images;
     }

@@ -4,16 +4,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.mtesio.meliapp.R;
 import com.example.mtesio.meliapp.item.ItemActivity;
+import com.mercadolibre.android.ui.widgets.MeliSnackbar;
+import com.mercadolibre.android.ui.widgets.MeliSpinner;
 
 public class ListaDeItemsActivity extends AppCompatActivity implements ListaView {
 
@@ -21,7 +23,7 @@ public class ListaDeItemsActivity extends AppCompatActivity implements ListaView
     private final String BUSQUEDA_SAVED = "busqueda";
 
     private RecyclerView list;
-    private ProgressBar progressBar;
+    private MeliSpinner progressBar;
     private ListaPresenter listaPresenter;
     private SearchView busqueda;
     private LinearLayout productos;
@@ -95,8 +97,9 @@ public class ListaDeItemsActivity extends AppCompatActivity implements ListaView
     }
 
     public void showError(){
-        Toast.makeText(this, "Request on failure",
-                Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Request on failure", Toast.LENGTH_LONG).show();
+        MeliSnackbar.make(list, "Request on failure", 3000, MeliSnackbar.Type.ERROR)
+                .show();
     }
 
     public void navigateToNextPage(String id){

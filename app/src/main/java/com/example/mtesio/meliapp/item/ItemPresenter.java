@@ -44,9 +44,13 @@ public class ItemPresenter {
 
     }
 
-    public void navigate(){
+    public void navigate(String route){
         if(view != null){
-            view.navigateToNextPage(itemModel.getUriArticuloMeli());
+            if(route.equals("meli"))
+                view.navigateToNextPage(itemModel.getUriArticuloMeli());
+            else
+                view.navigateToNextPage("ml://vervendedor");
+
         }
     }
 

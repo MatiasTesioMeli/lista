@@ -13,8 +13,6 @@
         android:id="@+id/imagenes_item"
         android:layout_width="match_parent"
         android:layout_height="280dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +29,7 @@
         app:layout_constraintBottom_toTopOf="@+id/titulo_item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:dotColor="@color/black"
+        app:dotColor="@color/white"
         app:fadingDotCount="2"
         app:selectedDotRadius="6dp"
         app:selectedDotColor="@color/colorPrimary"/>
@@ -115,11 +113,23 @@
 
     <Button
         android:id="@+id/comprar_item"
-        android:layout_width="match_parent"
+        android:layout_width="191dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:background="@color/colorPrimary"
         android:text="Comprar"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+    <Button
+        android:id="@+id/ver_vendedor_item"
+        android:layout_width="191dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:background="@color/colorPrimary"
+        android:text="Ver Vendedor"
         android:textColor="@color/white"
         android:textSize="20dp"
         android:textStyle="bold"

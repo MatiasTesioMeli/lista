@@ -17,6 +17,7 @@
         android:layout_gravity="center"
         android:hint="@string/username"
         android:id="@+id/username"
+        android:textAppearance="@style/MLFont.Bold"
         />
 
     <EditText
@@ -26,6 +27,7 @@
         android:layout_gravity="center"
         android:inputType="textPassword"
         android:id="@+id/password"
+        android:textAppearance="@style/MLFont.Bold"
         />
 
     <LinearLayout
@@ -35,6 +37,17 @@
         android:gravity="center_vertical"
         >
 
+        <com.mercadolibre.android.ui.widgets.MeliButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Press me!"
+            app:state="normal"
+            app:type="actionPrimary"
+            android:textAppearance="@style/MLFont.Bold"/>
+
+
+        <!--
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,6 +55,7 @@
             android:background="@drawable/log_in_button"
             android:id="@+id/sign_in_button"
             />
+            -->
 
     </LinearLayout>
 

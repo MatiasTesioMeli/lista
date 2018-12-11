@@ -1,10 +1,8 @@
 package com.example.mtesio.meliapp.item;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
@@ -16,19 +14,20 @@ import android.widget.Toast;
 
 import com.example.mtesio.meliapp.R;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.mercadolibre.android.ui.widgets.MeliSnackbar;
 import com.rbrooks.indefinitepagerindicator.IndefinitePagerIndicator;
 
 public class ItemActivity extends AppCompatActivity implements ItemView {
 
     private ItemPresenter itemPresenter;
     private final String ITEM_ID = "item_id";
-    private final String MELI_LINK = "meli_link";
     private TextView titulo;
     private TextView cantidad;
     private SimpleDraweeView mercadopago;
     private TextView precio;
     private TextView descripcion;
     private Button comprar;
+    private Button verVendedor;
     private String id_item;
     private RecyclerView fotos;
     private IndefinitePagerIndicator indefinitePagerIndicator;
@@ -52,9 +51,11 @@ public class ItemActivity extends AppCompatActivity implements ItemView {
         precio = findViewById(R.id.precio_item);
         descripcion = findViewById(R.id.descripcion_item);
         comprar = findViewById(R.id.comprar_item);
+        verVendedor = findViewById(R.id.ver_vendedor_item);
         indefinitePagerIndicator = findViewById(R.id.rec_indicator);
 
         comprar.setOnClickListener(comprarListener);
+        verVendedor.setOnClickListener(verVendedorListener);
 
         itemPresenter = new ItemPresenter(this, new ItemModel());
     }
@@ -66,8 +67,9 @@ public class ItemActivity extends AppCompatActivity implements ItemView {
     }
 
     public void showError(String msj){
-        Toast.makeText(this, msj,
-                Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, msj, Toast.LENGTH_LONG).show();
+        MeliSnackbar.make(fotos, msj, 3000, MeliSnackbar.Type.ERROR)
+                .show();
     }
 
     @Override
@@ -103,7 +105,14 @@ public class ItemActivity extends AppCompatActivity implements ItemView {
     private View.OnClickListener comprarListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-                itemPresenter.navigate();
+                itemPresenter.navigate("meli");
+        }
+    };
+
+    private View.OnClickListener verVendedorListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            itemPresenter.navigate("vendedor");
         }
     };
 }

@@ -42,7 +42,6 @@ public class LoginPresenterTest {
         verify(model, times(1)).setUsername(null);
         verify(model, times(1)).logAuth();
         verify(view, times(1)).navigateToNextPage();
-
     }
 
 
