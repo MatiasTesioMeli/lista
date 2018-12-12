@@ -37,30 +37,30 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:orientation="horizontal"
                 android:gravity="center"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                tools:layout_editor_absoluteX="0dp">
+                app:layout_constraintEnd_toEndOf="parent">
 
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/city"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_gravity="center"
                     android:layout_marginBottom="2dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
                     fresco:progressBarImageScaleType="centerInside"
                     fresco:roundAsCircle="true"
-                    android:scaleType="fitCenter"
-                    android:layout_gravity="center"
                     fresco:roundingBorderColor="#d3d3d3"
-                    fresco:roundingBorderWidth="3dp"
-                    android:layout_weight="1"/>
+                    fresco:roundingBorderWidth="3dp" />
 
                 <TextView
                     android:id="@+id/state"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:text="TextView"
                     android:textAlignment="center" />
 
