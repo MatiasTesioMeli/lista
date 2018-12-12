@@ -50,6 +50,27 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
 
+def pomConfig = {
+    licenses {
+        license {
+            name "Day"
+            url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+            distribution "repo"
+        }
+    }
+    developers {
+        developer {
+            id "matiastesio"
+            name "Matias tesio"
+            email "matias.tesio@mercadolibre.com"
+        }
+    }
+
+    scm {
+        url "https://github.com/MatiasTesioMeli/lista.git"
+    }
+}
+
 publishing {
     publications {
         MyPublication(MavenPublication) {
@@ -72,7 +93,7 @@ bintray {
     configurations = ['archives']
     publications = ['MyPublication']
     pkg {
-        repo = 'maven'
+        repo = 'MATIASTESIO'
         name = 'com.example.vistavendedor'
         licenses = ['Day']
         vcsUrl = 'https://github.com/MatiasTesioMeli/lista.git'

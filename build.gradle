@@ -7,6 +7,8 @@ buildscript {
         jcenter()
 
         maven { url 'http://maven-mobile.melicloud.com/nexus/content/repositories/releases' }
+        maven { url 'https://dl.bintray.com/matiastesio/MATIASTESIO' }
+
         flatDir {
             dirs 'aars'
         }
