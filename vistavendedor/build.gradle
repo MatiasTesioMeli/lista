@@ -74,7 +74,7 @@ def pomConfig = {
 publishing {
     publications {
         MyPublication(MavenPublication) {
-            artifactId 'bintray-publishing-sample'
+            artifactId 'seller_detail'
             version project.property('version')
             pom.withXml {
                 def root = asNode()
@@ -98,10 +98,10 @@ bintray {
         licenses = ['Day']
         vcsUrl = 'https://github.com/MatiasTesioMeli/lista.git'
         version {
-            name = '1.0.0'
+            name = '1.0.2'
             desc = 'Gradle Bintray Plugin 1.0 final'
             released  = new Date()
-            vcsTag = '1.0.0'
+            vcsTag = '1.0.2'
             attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
         }
     }
