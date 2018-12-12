@@ -1,9 +1,17 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
 plugins {
     id 'net.researchgate.release' version '2.6.0' //para generar releases
     id "com.jfrog.bintray" version "1.8.1" //para subir a bintray
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion 27
@@ -40,4 +48,40 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+publishing {
+    publications {
+        MyPublication(MavenPublication) {
+            artifactId 'bintray-publishing-sample'
+            version project.property('version')
+            pom.withXml {
+                def root = asNode()
+                root.appendNode('description', 'Bintray publishing example for firstLib')
+                root.appendNode('name', 'Bintray Publishing Sample')
+                root.appendNode('url', 'https://github.com/MatiasTesioMeli/lista.git')
+                root.children().last() + pomConfig
+            }
+        }
+    }
+}
+
+bintray {
+    user = 'matiastesio'
+    key = 'a952eafb7ec0d30c9bdc358792e5d79be045ace6'
+    configurations = ['archives']
+    publications = ['MyPublication']
+    pkg {
+        repo = 'maven'
+        name = 'com.example.vistavendedor'
+        licenses = ['Day']
+        vcsUrl = 'https://github.com/MatiasTesioMeli/lista.git'
+        version {
+            name = '1.0.0'
+            desc = 'Gradle Bintray Plugin 1.0 final'
+            released  = new Date()
+            vcsTag = '1.0.0'
+            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+        }
+    }
 }
